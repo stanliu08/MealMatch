@@ -74,7 +74,6 @@ h1 {
 
 #orLabel {
     position: relative;
-    top: -200px;
     width: fit-content;
     height: fit-content;
     display: block;
@@ -85,7 +84,6 @@ h1 {
 /*Hacky div needed to center the button, didn't want to center otherwise*/
 #nearmeDiv {
     position: relative;
-    top: -200px;
     width: fit-content;
     margin: auto;
 }
