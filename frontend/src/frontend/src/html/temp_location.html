@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location Confirmation</title>
+    <link rel="stylesheet" href="css/pc_style.css">
+</head>
+<body>
+    <h1>Location Confirmation</h1>
+    <div id="locationDisplay">
+        <p>Loading your location...</p>
+    </div>
+
+    <script>
+        window.onload = function() {
+            const lat = localStorage.getItem("latitude");
+            const lon = localStorage.getItem("longitude");
+
+            if (lat && lon) {
+                document.getElementById("locationDisplay").innerHTML = `
+                    <p>Your current location is:</p>
+                    <p>Latitude: ${lat}</p>
+                    <p>Longitude: ${lon}</p>
+                `;
+            } else {
+                document.getElementById("locationDisplay").innerHTML = `
+                    <p>Could not retrieve your location.</p>
+                `;
+            }
+        };
+    </script>
+</body>
+</html>

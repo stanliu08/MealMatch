@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>MealMatch</title>
+    <link rel="stylesheet" href="../css/pc_style.css">
+    <script src="../js/main.js" defer></script>
+</head>
+<body class="out">
+    <div id="contentDiv" class="out">
+        <div id="titleDiv" class="in">
+            <h1 class="out">MealMatch</h1>
+        </div>
+        <div id="locationDiv">
+            <input type="text" id="locationField" name="locationField" placeholder="Enter Location">
+            <button type="button" id="searchButton" onclick="submitLocation()">
+                <img src="../assets/search.png" id="searchImg">
+            </button>
+        </div>
+        <p id="orLabel">Or use your current location:</p>
+        <div id="nearmeDiv">
+            <button type="button" id="nearmeButton" onclick="useGeolocation()">Find Places Near Me</button>
+        </div>
+    </div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places"></script>
+</body>
+</html>
