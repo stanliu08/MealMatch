@@ -11,8 +11,9 @@
   />
 </head>
 <body>
+  <!-- (Optional) Yelp-inspired red navbar could be included here -->
   <div class="container py-4">
-    <h2 class="mb-4">Restaurants Near You</h2>
+    <h2 class="mb-4 text-danger">Restaurants Near You</h2>
     <!-- Filter Controls -->
     <form id="filterForm" class="row row-cols-lg-auto g-3 align-items-center mb-4">
       <div class="col-12">
@@ -32,7 +33,11 @@
         <span id="radiusDisplay" class="fw-semibold">5</span> miles
       </div>
       <div class="col-12">
-        <button type="submit" class="btn btn-primary">Apply Filters</button>
+        <button type="submit" class="btn btn-danger">Apply Filters</button>
+      </div>
+      <!-- Randomize Button -->
+      <div class="col-12">
+        <button type="button" id="randomizeBtn" class="btn btn-outline-danger">Randomize</button>
       </div>
     </form>
 
