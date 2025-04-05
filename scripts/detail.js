@@ -1,8 +1,8 @@
 // scripts/detail.js
 
-// Initialize the page after Google Maps JS API is loaded
+// Initializes page
 window.initDetails = function() {
-    // Parse the place_id from URL
+    // Parses the place_id from URL
     const params = new URLSearchParams(window.location.search);
     const placeId = params.get('place_id');
     if (!placeId) {
@@ -10,9 +10,9 @@ window.initDetails = function() {
       return;
     }
   
-    // Initialize Places Service (no map needed, use dummy div)
+    // Initializes Places Service
     const service = new google.maps.places.PlacesService(document.createElement('div'));
-    // Request place details (specify fields to limit data & cost)&#8203;:contentReference[oaicite:9]{index=9}
+    // Request place details
     service.getDetails({
       placeId: placeId,
       fields: [
@@ -21,7 +21,7 @@ window.initDetails = function() {
       ]
     }, function(place, status) {
       if (status === google.maps.places.PlacesServiceStatus.OK && place) {
-        // Fill in the page with place details
+        // Fills in the page with place details
         document.getElementById('placeName').innerText = place.name || "Unnamed Place";
         document.getElementById('placeAddress').innerText = place.formatted_address || "";
   
@@ -31,12 +31,11 @@ window.initDetails = function() {
           contactP.innerHTML = `<strong>Phone:</strong> <a href="tel:${place.formatted_phone_number}">${place.formatted_phone_number}</a>`;
         }
         if (place.website) {
-          // Append website info (open in new tab)
+          // Appends the website info
           const websiteLink = document.createElement('a');
           websiteLink.href = place.website;
           websiteLink.target = "_blank";
           websiteLink.innerText = "Website";
-          // If phone was set, add separator
           if (place.formatted_phone_number) {
             contactP.innerHTML += " | ";
           }

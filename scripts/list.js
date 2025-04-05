@@ -1,19 +1,19 @@
 // scripts/list.js
 
-// Constants and variables
-const METERS_PER_MILE = 1609;  // conversion factor for miles to meters (approximate)
-let userLat, userLng;          // to store user location coordinates
+// Constant
+const METERS_PER_MILE = 1609;  // conversion factor for miles to meters
+let userLat, userLng;          // stores user location coordinates
 let placesService;             // Google Places Service object
 
 // Initialize the page after Google Maps JS API is loaded
 window.initPlaces = function() {
-  // Parse URL query parameters for location or address
+  // Parses the URL query
   const params = new URLSearchParams(window.location.search);
   const latParam = params.get('lat');
   const lngParam = params.get('lng');
   const addressParam = params.get('address');
 
-  // If an address is provided (from manual input), geocode it to get coordinates
+  // If an address is provided (from manual input), geocode it to get coordinates, Currently does not work
   if (addressParam && (!latParam || !lngParam)) {
     const geocoder = new google.maps.Geocoder();
     geocoder.geocode({ address: addressParam }, function(results, status) {
@@ -37,11 +37,11 @@ window.initPlaces = function() {
     return;
   }
 
-  // Set up filter form event handler to re-run search on filter changes
+  // Set up filter form event handler to re-search
   const filterForm = document.getElementById('filterForm');
   filterForm.addEventListener('submit', function(event) {
     event.preventDefault();
-    performSearch();  // re-run the search with new filter values
+    performSearch();  // new values in new search
   });
   // Update radius display text when slider is moved
   document.getElementById('radiusRange').addEventListener('input', function() {
@@ -53,7 +53,7 @@ window.initPlaces = function() {
 function performSearch() {
   // Ensure PlacesService is initialized
   if (!placesService) {
-    // Use a dummy div (#map) as map container for PlacesService (no actual map needed)
+    // Use a dummy div (#map) as map container for PlacesService
     const mapDiv = document.getElementById('map');
     placesService = new google.maps.places.PlacesService(mapDiv);
   }
@@ -78,9 +78,8 @@ function performSearch() {
     request.minPriceLevel = minPrice;
     request.maxPriceLevel = maxPrice;
   }
-  // (Optional) We could add keyword or name filtering here if needed.
 
-  // Call the Google Places Nearby Search API&#8203;:contentReference[oaicite:8]{index=8}
+  // Call the Google Places Nearby Search
   placesService.nearbySearch(request, function(results, status) {
     const resultsList = document.getElementById('resultsList');
     resultsList.innerHTML = "";  // clear any existing results
