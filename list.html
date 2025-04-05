@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MealMatch – Restaurants Near You</title>
+  <!-- Bootstrap CSS -->
+  <link 
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" 
+    rel="stylesheet" 
+  />
+</head>
+<body>
+  <!-- (Optional) Yelp-inspired red navbar could be included here -->
+  <div class="container py-4">
+    <h2 class="mb-4 text-danger">Restaurants Near You</h2>
+    <!-- Filter Controls -->
+    <form id="filterForm" class="row row-cols-lg-auto g-3 align-items-center mb-4">
+      <div class="col-12">
+        <label for="priceSelect" class="form-label fw-semibold me-2">Price:</label>
+        <select id="priceSelect" class="form-select">
+          <option value="" selected>Any</option>
+          <option value="1">$ (Inexpensive)</option>
+          <option value="2">$$ (Moderate)</option>
+          <option value="3">$$$ (Pricey)</option>
+          <option value="4">$$$$ (Luxury)</option>
+        </select>
+      </div>
+      <div class="col-12">
+        <label for="radiusRange" class="form-label fw-semibold me-2">Radius:</label>
+        <input type="range" id="radiusRange" class="form-range align-middle" 
+               min="1" max="20" value="5" step="1" />
+        <span id="radiusDisplay" class="fw-semibold">5</span> miles
+      </div>
+      <div class="col-12">
+        <button type="submit" class="btn btn-danger">Apply Filters</button>
+      </div>
+      <!-- Randomize Button -->
+      <div class="col-12">
+        <button type="button" id="randomizeBtn" class="btn btn-outline-danger">Randomize</button>
+      </div>
+    </form>
+
+    <!-- Restaurants List -->
+    <div id="resultsList" class="list-group">
+      <!-- Restaurant entries will be inserted here by JavaScript -->
+    </div>
+
+    <!-- Placeholder for Google Maps API (not visible) -->
+    <div id="map" style="display:none;"></div>
+  </div>
+
+  <!-- Config and Page Script -->
+  <script src="scripts/config.js"></script>
+  <script src="scripts/list.js"></script>
+</body>
+</html>
