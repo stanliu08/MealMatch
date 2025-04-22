@@ -1,0 +1,187 @@
+body {
+    background: linear-gradient(to bottom right, #f7f9fc, #eef2f7);
+  }
+  
+  .container {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+    padding: 2rem;
+  }
+  
+  .carousel-item img {
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+  
+  .badge {
+    font-size: 0.85rem;
+    background: linear-gradient(135deg, #4f46e5, #3b82f6);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    margin-right: 5px;
+  }
+  
+  #reviewSection {
+    background-color: #f9fafb;
+    border-radius: 10px;
+    padding: 1rem;
+  }
+  
+  .list-group-item {
+    border: none;
+    background-color: transparent;
+    border-left: 4px solid #3b82f6;
+    margin-bottom: 8px;
+    padding-left: 1rem;
+  }
+  
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+  
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Hero Banner for Restaurant Name */
+#placeName {
+    background: linear-gradient(135deg, #1d4ed8, #3b82f6);
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* Section Headers (Opening Hours, Menu, Reviews) */
+  .section-heading {
+    background-color: #e0f2fe;
+    color: #0c4a6e;
+    padding: 0.5rem 1rem;
+    border-left: 6px solid #0ea5e9;
+    font-weight: bold;
+    border-radius: 6px;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  }
+  
+  /* Optional: White card for each section */
+  .section-content {
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  }
+  
+  #index-title {
+    background: linear-gradient(135deg, #3b82f6, #6366f1);
+    color: white;
+    padding: 1.25rem 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+  }
+  
+  #locationFormContainer {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    max-width: 500px;
+    margin: auto;
+  }
+  
+  button.btn-primary {
+    background: linear-gradient(to right, #3b82f6, #6366f1);
+    border: none;
+  }
+  button.btn-primary:hover {
+    background: linear-gradient(to right, #2563eb, #4f46e5);
+  }
+  
+  button.btn-success {
+    background-color: #16a34a;
+    border: none;
+  }
+  button.btn-success:hover {
+    background-color: #15803d;
+  }
+  
+  #index-title {
+    position: relative;
+    z-index: 1;
+  }
+  
+  #index-title::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #3b82f6, #6366f1);
+    filter: blur(20px);
+    opacity: 0.5;
+    z-index: -1;
+  }
+  body {
+    background: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)),
+                url('../images/fruit\ basket-pana.png') no-repeat center bottom;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+  /* Restaurant List Cards */
+.list-group-item {
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    padding: 1rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .list-group-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  }
+  
+  /* Improve select and range input appearance */
+  .form-select,
+  .form-range {
+    border-radius: 6px;
+    box-shadow: none;
+    border-color: #d1d5db;
+  }
+  
+  /* Primary buttons styled like the homepage */
+  .btn-danger {
+    background: linear-gradient(to right, #dc2626, #ef4444);
+    border: none;
+    color: white;
+  }
+  .btn-danger:hover {
+    background: linear-gradient(to right, #b91c1c, #dc2626);
+  }
+  
+  /* Outline buttons */
+  .btn-outline-danger {
+    border-color: #ef4444;
+    color: #ef4444;
+  }
+  .btn-outline-danger:hover {
+    background-color: #ef4444;
+    color: white;
+  }
+  
