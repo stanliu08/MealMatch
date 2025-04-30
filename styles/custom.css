@@ -9,6 +9,13 @@ body {
     padding: 2rem;
   }
   
+  #filterForm {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+  }
+
   .carousel-item img {
     max-height: 400px;
     object-fit: cover;
@@ -17,11 +24,20 @@ body {
   
   .badge {
     font-size: 0.85rem;
+    display: inline-block !important;
     background: linear-gradient(135deg, #4f46e5, #3b82f6);
     color: white;
-    padding: 6px 12px;
+    padding: 0.25em 0.6em;
     border-radius: 20px;
     margin-right: 5px;
+    display: inline-block;
+    width: auto !important;
+    max-width: none !important;
+    white-space: nowrap;
+  }
+
+  .card.mb-3.p-3 {
+    padding: 1rem;
   }
   
   #reviewSection {
@@ -51,6 +67,27 @@ body {
     }
   }
   
+/* === Compact inline badges === */
+.card .badge {
+  display: inline-block !important;
+  width: auto !important;
+  max-width: none !important;
+  white-space: nowrap !important;
+  padding: 0.25rem 0.6rem;   /* tighten padding */
+  font-size: 0.85rem;       /* smaller font */
+}
+
+/* remove any leftover full-width backgrounds */
+.card .badge.bg-primary {
+  background: linear-gradient(135deg, #4f46e5, #3b82f6) !important;
+}
+
+/* ensure badge container flex spacing */
+.card-body .d-flex > .badge:last-child {
+  margin-right: 0;
+}
+
+
   /* Hero Banner for Restaurant Name */
 #placeName {
     background: linear-gradient(135deg, #1d4ed8, #3b82f6);
@@ -167,21 +204,21 @@ body {
   
   /* Primary buttons styled like the homepage */
   .btn-danger {
-    background: linear-gradient(to right, #dc2626, #ef4444);
+    background: linear-gradient(to right, #3b82f6, #6366f1);
     border: none;
     color: white;
   }
   .btn-danger:hover {
-    background: linear-gradient(to right, #b91c1c, #dc2626);
+    background: linear-gradient(to right, #3b82f6, #6366f1);
   }
   
   /* Outline buttons */
   .btn-outline-danger {
-    border-color: #ef4444;
-    color: #ef4444;
+    background: linear-gradient(to right, #3b82f6, #6366f1);
+    color: white;
   }
   .btn-outline-danger:hover {
-    background-color: #ef4444;
+    background: linear-gradient(to right, #3b82f6, #6366f1);
     color: white;
   }
   

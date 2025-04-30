@@ -172,24 +172,51 @@ function onPlacesSearchResults(results, status, pagination) {
 }
 
 // Render a given array of places into the list
-function renderResults(placesArray) {
+function renderResults(places) {
   const container = document.getElementById('results-list');
-  container.innerHTML = "";
-  for (const place of placesArray) {
-    const item = document.createElement('div');
-    item.className = "list-group-item";
-    item.innerHTML = `
-      <h5>${place.name}</h5>
-      <p>${place.vicinity || place.formatted_address} 
-         – <span class="text-muted">${place.distance} mi away</span>
-      </p>
-      <a href="detail.html?place_id=${place.place_id}" class="btn btn-sm btn-outline-primary">
-        View Details
-      </a>
+  container.innerHTML = '';
+  
+  places.forEach(place => {
+    // Create clickable card
+    const card = document.createElement('div');
+    card.className = 'card mb-3';
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', () => {
+      window.location.href = `detail.html?place_id=${place.place_id}`;
+    });
+
+    // Compute distance text (place.distance is in miles already)
+    const distanceText = (place.distance != null)
+      ? ` – ${place.distance.toFixed(1)} mi away`
+      : '';
+
+    // Build inner HTML
+    const html = `
+      <div class="card-body p-3">
+        <h5 class="fw-bold mb-1">${place.name}</h5>
+        <p class="mb-2">${place.vicinity || place.formatted_address}${distanceText}</p>
+        <div class="d-flex flex-wrap align-items-center">
+          ${place.price_level != null
+            ? `<span class="badge bg-primary rounded-pill me-2">$${'$'.repeat(place.price_level).slice(1)}</span>`
+            : ''}
+          ${place.rating != null
+            ? `<span class="badge bg-primary rounded-pill me-2">${place.rating.toFixed(1)}★</span>`
+            : ''}
+          ${place.opening_hours
+            ? (place.opening_hours.open_now
+                ? '<span class="text-success fw-semibold">Open</span>'
+                : '<span class="text-danger fw-semibold">Closed</span>')
+            : ''}
+        </div>
+      </div>
     `;
-    container.appendChild(item);
-  }
+
+    card.innerHTML = html;
+    container.appendChild(card);
+  });
 }
+
+
 
 // Dynamically load Google Maps JS (Places + Geometry) with callback
 (function loadMapsScript() {
